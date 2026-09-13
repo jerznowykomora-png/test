@@ -28,9 +28,18 @@
      <lastBuildDate>
 
   JAK WYGRAĆ:
-   wrzuć plik na serwer jako /blog/feed.xml (musi zwracać 200, nie 404) i
-   opcjonalnie zgłoś go w Google Search Console → „Mapy witryn”, wpisując:
-   feed.xml   (Google przyjmuje kanały RSS/Atom jako mapy witryn)
+   1. wrzuć plik na serwer jako /blog/feed.xml (musi zwracać 200, nie 404)
+   2. serwer powinien wysyłać nagłówek:  Content-Type: application/rss+xml
+      („application/xml” jest za mało konkretne — walidator to zgłasza).
+      LiteSpeed/Apache — w .htaccess:
+          <Files "feed.xml">
+              ForceType application/rss+xml
+          </Files>
+      UWAGA: nie używaj globalnego „AddType application/rss+xml .xml”,
+      bo sitemap.xml musi pozostać application/xml.
+   3. opcjonalnie zgłoś kanał w Google Search Console → „Mapy witryn”,
+      wpisując: feed.xml  (Google przyjmuje RSS/Atom jako mapy witryn)
+   4. sprawdź ponownie: https://validator.w3.org/feed/
 -->
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -39,15 +48,20 @@
     <description>Independent guides about Stripchat tokens: pricing, promo codes, giveaways, ticket shows and scam warnings. No fluff, no scams.</description>
     <language>en-us</language>
     <copyright>© 2026 StripTokens.live</copyright>
-    <managingEditor>StripTokens.live Editorial Team</managingEditor>
-    <webMaster>StripTokens.live Editorial Team</webMaster>
+    <!-- UWAGA: <managingEditor> i <webMaster> MUSZĄ zawierać adres e-mail
+         w formacie:  adres@domena.com (Nazwa Właściciela)
+         Zwykły tekst (np. sama nazwa redakcji) = błąd walidacji, dlatego
+         tych pól tutaj nie ma. Jeśli powstanie skrzynka redakcyjna, dopisz:
+         <managingEditor>kontakt@striptokens.live (StripTokens.live Editorial Team)</managingEditor> -->
     <lastBuildDate>Sun, 13 Sep 2026 09:00:00 +0200</lastBuildDate>
     <ttl>1440</ttl>
     <atom:link href="https://striptokens.live/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <!-- <image>: <title> i <link> MUSZĄ być identyczne z <title> i <link>
+         całego kanału — inaczej walidator W3C zgłasza niezgodność. -->
     <image>
       <url>https://striptokens.live/favi.jpg</url>
-      <title>StripTokens.live</title>
-      <link>https://striptokens.live/</link>
+      <title>StripTokens.live — Stripchat Token Guides</title>
+      <link>https://striptokens.live/blog/</link>
     </image>
 
     <item>

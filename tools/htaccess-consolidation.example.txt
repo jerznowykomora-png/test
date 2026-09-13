@@ -1,0 +1,42 @@
+# =============================================================================
+#  PLAN B — KONSOLIDACJA STRON (scalanie bliźniaczych podstron)
+#  striptokens.live · 2026-09-13
+#
+#  ⚠️ NIE AKTYWOWAĆ OD RAZU. To jest krok awaryjny: użyj go tylko wtedy, gdy
+#     po 3 tygodniach od zgłoszenia w Search Console /stripchat-hack/ nadal ma
+#     status „Odczytał — obecnie nie wchodzi w skład indeksu” albo
+#     „Duplikat — Google wybrał inny kanoniczny adres niż użytkownik”.
+#
+#  Dlaczego to działa: masz 6 podstron zbudowanych z jednego szablonu, pod to
+#  samo zapytanie („free stripchat tokens”). Google nie widzi powodu, żeby
+#  indeksować wszystkie. Scalenie = 2 mocne strony zamiast 6 słabych.
+#
+#  JAK UŻYĆ:
+#    1. Skopiuj potrzebne linie do pliku .htaccess w katalogu głównym witryny
+#       (lub do konfiguracji LiteSpeed: Virtual Host → Rewrite).
+#    2. NIE przekierowuj strony, która jest już w indeksie i ma ruch
+#       (sprawdź w GSC → Skuteczność, ostatnie 3 miesiące).
+#    3. Po wdrożeniu zaktualizuj sitemap.xml — przekierowane URL-e MUSZĄ z niej
+#       zniknąć (adres zwracający 301 nie może być w mapie strony).
+#    4. W GSC poproś o indeksowanie strony docelowej.
+# =============================================================================
+
+# --- Wariant A: zostaje /stripchat-hack/ (zalecany — ma teraz najwięcej
+#     unikalnej treści: 7 czerwonych flag + instrukcja po wycieku hasła) -------
+Redirect 301 /stripchat-tokens-generator/ https://striptokens.live/stripchat-hack/
+
+# --- Wariant B: porządkowanie pozostałych duplikatów --------------------------
+# Redirect 301 /stripchat-tokens/       https://striptokens.live/stripchat-tokens-price/
+# Redirect 301 /stripchat-free-tokens/  https://striptokens.live/how-to-get-free-stripchat-tokens.html
+# Redirect 301 /stripchat-token-discount/ https://striptokens.live/promo-codes.html
+
+# --- Alternatywa (zamiast 301): canonical krzyżowy ---------------------------
+# Jeśli nie chcesz tracić strony, ustaw na niej w <head>:
+#   <link rel="canonical" href="https://striptokens.live/stripchat-hack/" />
+# i zostaw ją dostępną. 301 jest skuteczniejszy, canonical jest bezpieczniejszy
+# (nie kasujesz URL-a, który może mieć jakiś ruch).
+
+# --- Nagłówek, którego NIE wolno mieć ----------------------------------------
+# Sprawdź: curl -sSI https://striptokens.live/stripchat-hack/ | grep -i x-robots-tag
+# Jeśli widzisz "X-Robots-Tag: noindex" — żadne z powyższych nie zadziała,
+# dopóki go nie usuniesz (szukaj w .htaccess, wtyczce SEO lub panelu hostingu).

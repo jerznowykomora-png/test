@@ -117,6 +117,8 @@ Plik: **`stripchat-hack/index.html`** (oryginał `kod.txt` zostaje w historii gi
 | `sitemap.xml` | poprawny XML, każdy URL raz, `lastmod` zgodny z prawdą |
 | `internal-links.html` | gotowe fragmenty do wklejenia na **już zaindeksowane** strony |
 | `tools/submit-urls.sh` | ping do Bing + IndexNow + instrukcja dla Google Search Console |
+| `blog/feed.xml` | kanał RSS 2.0 — **musi istnieć**, bo link do niego jest w `<head>` strony (obecnie 404). Można go zgłosić w GSC jako mapę witryn |
+| `tools/htaccess-consolidation.example.txt` | plan awaryjny na wypadek braku indeksacji po 3 tyg. (nieaktywny) |
 | `assets/og/stripchat-hack.jpg` | obrazek dla `og:` / Twitter Card (1200×630) |
 
 ---
@@ -127,7 +129,9 @@ Plik: **`stripchat-hack/index.html`** (oryginał `kod.txt` zostaje w historii gi
 - [ ] **2.** Wgraj `assets/og/stripchat-hack.jpg` do `/og/stripchat-hack.jpg`
       (lub podmień ścieżkę w `og:image` / `twitter:image`, jeśli wolisz inny katalog).
       *Sprawdź obrazek przed wgraniem — jeśli napis wyszedł krzywo, podmień na własny.*
-- [ ] **3.** Wgraj nowy `sitemap.xml`.
+- [ ] **3.** Wgraj nowy `sitemap.xml` oraz `blog/feed.xml`
+      (kanał RSS zawiera m.in. `/stripchat-hack/`, więc to dodatkowa droga odkrycia —
+      można go zgłosić w GSC → Mapy witryn, wpisując `feed.xml`).
 - [ ] **4.** `robots.txt`: **jeśli w Cloudflare włączone jest „Managed robots.txt”**, Twój plik jest
       ignorowany. Albo wyłącz tę opcję, albo zostaw — obecny plik Cloudflare jest poprawny.
 - [ ] **5.** Sprawdź nagłówki serwera:

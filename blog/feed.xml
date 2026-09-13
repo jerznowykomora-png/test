@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  blog/feed.xml — kanał RSS 2.0 dla striptokens.live
+  Ostatnia aktualizacja: 2026-09-13
+
+  CO TO JEST:
+  Kanał RSS to plik, w którym publikujesz skróconą listę swoich najnowszych
+  artykułów (tytuł, link, data, opis). Czytniki RSS, wyszukiwarki i serwisy
+  agregujące pobierają go automatycznie — dzięki temu nowe treści są
+  zauważane często szybciej niż przez samą mapę strony.
+
+  CO MUSI ZAWIERAĆ (minimum, żeby plik był poprawny):
+   1. <channel> z obowiązkowymi polami: <title>, <link>, <description>
+   2. przynajmniej jeden <item>, każdy z <title>, <link> i <guid>
+   3. daty w formacie RFC 822, np. "Sun, 13 Sep 2026 09:00:00 +0200"
+      (format ISO 2026-09-13 tutaj NIE zadziała — to najczęstszy błąd)
+   4. link do samego siebie (atom:self) — wymagany przez walidator W3C
+
+  ZASADY, KTÓRYCH WARTO PRZESTRZEGAĆ:
+   - maks. ~10–15 najnowszych wpisów (nie cała historia)
+   - <link> musi być identyczny z adresem kanonicznym artykułu
+     (z ukośnikiem na końcu dokładnie tak, jak na stronie)
+   - opis: 1–3 zdania z sensem, NIE wklejony cały artykuł i NIE same słowa
+     kluczowe (kanały bywają używane do spamu, więc traktuj to jak treść)
+   - <guid> stały i unikalny dla każdego wpisu — po nim czytniki poznają,
+     czy artykuł jest nowy, czy tylko edytowany
+   - gdy dodasz nowy artykuł: dopisz <item> na GÓRĘ listy i zaktualizuj
+     <lastBuildDate>
+
+  JAK WYGRAĆ:
+   wrzuć plik na serwer jako /blog/feed.xml (musi zwracać 200, nie 404) i
+   opcjonalnie zgłoś go w Google Search Console → „Mapy witryn”, wpisując:
+   feed.xml   (Google przyjmuje kanały RSS/Atom jako mapy witryn)
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>StripTokens.live — Stripchat Token Guides</title>
+    <link>https://striptokens.live/blog/</link>
+    <description>Independent guides about Stripchat tokens: pricing, promo codes, giveaways, ticket shows and scam warnings. No fluff, no scams.</description>
+    <language>en-us</language>
+    <copyright>© 2026 StripTokens.live</copyright>
+    <managingEditor>StripTokens.live Editorial Team</managingEditor>
+    <webMaster>StripTokens.live Editorial Team</webMaster>
+    <lastBuildDate>Sun, 13 Sep 2026 09:00:00 +0200</lastBuildDate>
+    <ttl>1440</ttl>
+    <atom:link href="https://striptokens.live/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://striptokens.live/favi.jpg</url>
+      <title>StripTokens.live</title>
+      <link>https://striptokens.live/</link>
+    </image>
+
+    <item>
+      <title>Stripchat Hack Tokens 2026: Why Hacks Fail + 50 Free Tokens Legally</title>
+      <link>https://striptokens.live/stripchat-hack/</link>
+      <guid isPermaLink="true">https://striptokens.live/stripchat-hack/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 +0200</pubDate>
+      <category>Safety</category>
+      <description>Every Stripchat token hack in 2026 is a scam. The technical reason is simple: balances live on Stripchat's servers, so no external tool can change them. Includes a 7-point red-flag checklist for spotting fake generator sites and a recovery guide if you already typed your password.</description>
+    </item>
+
+    <item>
+      <title>Stripchat Mod APK — Why It's Dangerous &amp; What Happens If You Install One</title>
+      <link>https://striptokens.live/blog/stripchat-mod-apk-danger/</link>
+      <guid isPermaLink="true">https://striptokens.live/blog/stripchat-mod-apk-danger/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 +0200</pubDate>
+      <category>Safety</category>
+      <description>What modified Stripchat APK files actually do to your device: permission abuse, SMS interception, credential theft and cryptomining — plus what to do if you already installed one.</description>
+    </item>
+
+    <item>
+      <title>Stripchat Referral Program — How to Earn Passive Tokens Step by Step</title>
+      <link>https://striptokens.live/blog/how-to-earn-passive-tokens/</link>
+      <guid isPermaLink="true">https://striptokens.live/blog/how-to-earn-passive-tokens/</guid>
+      <pubDate>Sat, 05 Sep 2026 09:00:00 +0200</pubDate>
+      <category>Guides</category>
+      <description>How to generate your Stripchat referral link, where to share it, realistic earnings expectations and how to maximise passive token rewards.</description>
+    </item>
+
+    <item>
+      <title>Stripchat Ticket Show — Complete Guide: How It Works, Costs &amp; Tips</title>
+      <link>https://striptokens.live/blog/stripchat-ticket-show-guide/</link>
+      <guid isPermaLink="true">https://striptokens.live/blog/stripchat-ticket-show-guide/</guid>
+      <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
+      <category>Guides</category>
+      <description>Everything about Stripchat Ticket Shows in 2026 — how to find them, what they cost, how refunds work and how to get the most value per token.</description>
+    </item>
+
+    <item>
+      <title>Stripchat vs Chaturbate Tokens — Which Platform Gives You More Value?</title>
+      <link>https://striptokens.live/blog/stripchat-vs-chaturbate-tokens/</link>
+      <guid isPermaLink="true">https://striptokens.live/blog/stripchat-vs-chaturbate-tokens/</guid>
+      <pubDate>Tue, 01 Sep 2026 09:00:00 +0200</pubDate>
+      <category>Comparisons</category>
+      <description>A side-by-side comparison of token pricing, private show costs, tipping mechanics and bonus systems on Stripchat and Chaturbate.</description>
+    </item>
+
+  </channel>
+</rss>

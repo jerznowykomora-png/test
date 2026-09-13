@@ -1,0 +1,38 @@
+# robots.txt — striptokens.live
+# Last updated: 2026-09-13
+#
+# WAŻNE: jeśli w Cloudflare włączona jest opcja "Managed robots.txt"
+# (Bots → Managed robots.txt), poniższy plik jest IGNOROWANY, a serwowany
+# jest plik wygenerowany przez Cloudflare. Wtedy:
+#   a) wyłącz "Managed robots.txt"  →  zacznie działać ten plik, albo
+#   b) zostaw włączone i upewnij się, że w sekcji zarządzanej jest "Allow: /".
+# Obecny plik Cloudflare jest poprawny dla Googlebota (Allow: / + Sitemap),
+# więc indeksowania NIE blokuje. Ten plik jest czystszym, bezpieczniejszym
+# wariantem na przyszłość.
+
+User-agent: *
+Allow: /
+
+# Śmieciowe ścieżki techniczne — nie mają treści, tylko marnują budżet crawlowania.
+# Nie blokujemy .css ani .js — Google musi je pobrać, żeby poprawnie
+# renderować stronę (blokada CSS/JS obniża ocenę jakości i mobile-friendly).
+Disallow: /cgi-bin/
+
+# ⛔ NIGDY nie dodawaj tutaj /stripchat-hack/ — ta strona ma być w indeksie.
+
+# Boty AI (opcjonalnie). Google-Extended NIE blokuje Googlebot-a,
+# czyli nie ma wpływu na zwykłe indeksowanie w wyszukiwarce.
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Mapa strony — kluczowa dla odkrycia nowych URL-i
+Sitemap: https://striptokens.live/sitemap.xml
